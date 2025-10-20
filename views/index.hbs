@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,17 +40,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            
+
             z-index: -1;
             background: radial-gradient(circle at 25% 25%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 75% 75%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 75% 75%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
             /* animation: float 20s ease-in-out infinite; */
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
         }
 
         /* Navigation */
@@ -130,6 +141,8 @@
 
         .hero-content h1 {
             font-size: 4rem;
+            text-align: center;
+            {{!-- border: solid 1px red; --}}
             margin-bottom: 1rem;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -143,8 +156,13 @@
         }
 
         @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.5)); }
-            to { filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.8)); }
+            from {
+                filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.5));
+            }
+
+            to {
+                filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.8));
+            }
         }
 
         /* Typewriter Animation */
@@ -176,8 +194,16 @@
         }
 
         @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         .typing {
@@ -492,9 +518,10 @@
         }
     </style>
 </head>
+
 <body>
     <div class="bg-animation"></div>
-    
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -516,10 +543,9 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="typewriter-text" id="typewriter"></h1>
             <div class="typewriter-container">
-                {{!-- <p class="typewriter-text" id="typewriter"></p> --}}
-            </div>
+                <h1 class="typewriter-text" id="typewriter"></h1>
+                </div>
             <div class="hero-description">
                 <p>{{hero_description}}</p>
             </div>
@@ -550,10 +576,11 @@
                 <p>{{about_mission}}</p>
             </div>
             <div class="about-image">
-                <img src="{{about_image}}" alt="Sobre nosotros" style="width: 100%; height: 300px; object-fit: cover; border-radius: 20px;">
+                <img src="{{about_image}}" alt="Sobre nosotros"
+                    style="width: 100%; height: 300px; object-fit: cover; border-radius: 20px;">
             </div>
         </div>
-        
+
         <div class="stats-grid">
             {{#each stats}}
             <div class="stat-item">
@@ -572,17 +599,17 @@
                 <label for="name">Nombre Completo</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="email">Correo Electrónico</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="phone">Teléfono</label>
                 <input type="tel" id="phone" name="phone">
             </div>
-            
+
             <div class="form-group">
                 <label for="service">Servicio de Interés</label>
                 <select id="service" name="service" required>
@@ -595,12 +622,12 @@
                     <option value="otro">Otro</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label for="message">Mensaje</label>
                 <textarea id="message" name="message" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
             </div>
-            
+
             <button type="submit" class="cta-button">Enviar Mensaje</button>
         </form>
     </section>
@@ -618,7 +645,7 @@
                     <a href="{{social.twitter}}" target="_blank">🐦</a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Servicios</h3>
                 <ul>
@@ -629,14 +656,14 @@
                     <li><a href="#services">Fotografía</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <p>📧 {{contact.email}}</p>
                 <p>📱 {{contact.phone}}</p>
                 <p>📍 {{contact.address}}</p>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Horarios</h3>
                 <p>Lunes - Viernes: 9:00 AM - 6:00 PM</p>
@@ -644,8 +671,9 @@
                 <p>Domingos: Cerrado</p>
             </div>
         </div>
-        
-        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+
+        <div
+            style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
             <p>&copy; {{current_year}} {{company_name}}. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -655,14 +683,16 @@
         const typewriterElement = document.getElementById('typewriter');
         const services = [
             'Desarrollo Web',
-            'Sistemas POS I  nteligentes',
+            'Sistemas POS Inteligentes',
+            'Desarrollo Movil',
+            'Sistemas de Facturacion',
             'Publicidad Digital ',
             'Diseño Gráfico Creativo',
             'Fotografía Profesional',
             'Flyers y Marketing',
-            'Soluciones Innovadoras'    
+            'Soluciones Innovadoras'
         ];
-        
+
         let currentServiceIndex = 0;
         let currentCharIndex = 0;
         let isDeleting = false;
@@ -670,7 +700,7 @@
 
         function typeWriter() {
             const currentService = services[currentServiceIndex];
-            
+
             if (isDeleting) {
                 typewriterElement.textContent = currentService.substring(0, currentCharIndex - 1);
                 currentCharIndex--;
@@ -732,28 +762,28 @@
         });
 
         // Form submission handling
-        document.querySelector('.contact-form').addEventListener('submit', async function(e) {
+        document.querySelector('.contact-form').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
-            
+
             // Mostrar estado de carga
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
-            
+
             try {
                 // Get form data
                 const formData = new FormData(this);
-                
+
                 // Send data to server
                 const response = await fetch('/contact', {
                     method: 'POST',
                     body: formData
                 });
-                
+
                 const result = await response.json();
-                
+
                 if (result.success) {
                     // Show success message with custom styling
                     showMessage('¡Gracias por tu mensaje! 🚀 Te contactaremos en las próximas 24 horas.', 'success');
@@ -778,11 +808,11 @@
             if (existingMsg) {
                 existingMsg.remove();
             }
-            
+
             const messageDiv = document.createElement('div');
             messageDiv.className = `custom-message ${type}`;
             messageDiv.innerHTML = message;
-            
+
             // Styles for the message
             const isSuccess = type === 'success';
             messageDiv.style.cssText = `
@@ -799,18 +829,18 @@
                 backdrop-filter: blur(20px);
                 transform: translateX(400px);
                 transition: transform 0.3s ease;
-                background: ${isSuccess ? 
-                    'linear-gradient(135deg, #00f5ff, #7c3aed)' : 
+                background: ${isSuccess ?
+                    'linear-gradient(135deg, #00f5ff, #7c3aed)' :
                     'linear-gradient(135deg, #ff4757, #ff3742)'};
             `;
-            
+
             document.body.appendChild(messageDiv);
-            
+
             // Animate in
             setTimeout(() => {
                 messageDiv.style.transform = 'translateX(0)';
             }, 100);
-            
+
             // Auto remove after 5 seconds
             setTimeout(() => {
                 messageDiv.style.transform = 'translateX(400px)';
@@ -846,4 +876,5 @@
         });
     </script>
 </body>
+
 </html>

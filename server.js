@@ -21,11 +21,11 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Registrar helpers de Handlebars
-hbs.registerHelper('eq', function(a, b, options) {
+hbs.registerHelper('eq', function (a, b, options) {
     return (a === b) ? options.fn(this) : options.inverse(this);
 });
 
-hbs.registerHelper('currentYear', function() {
+hbs.registerHelper('currentYear', function () {
     return new Date().getFullYear();
 });
 
@@ -53,80 +53,79 @@ const transporter = nodemailer.createTransporter({
 
 // Datos del template
 const templateData = {
-    title: "Pixel&Co",
-    company_name: "Pixel&Co",
-    hero_title: "Innovación Digital del Futuro",
-    hero_description: "Transformamos ideas en soluciones digitales extraordinarias con tecnología de vanguardia",
-    about_description: "Somos una empresa especializada en crear soluciones digitales innovadoras que impulsan el crecimiento de tu negocio. Con años de experiencia en el mercado, nos hemos consolidado como líderes en desarrollo tecnológico.",
-    about_mission: "Nuestra misión es democratizar la tecnología, haciendo que las herramientas más avanzadas sean accesibles para empresas de todos los tamaños. Creemos que la innovación debe ser el motor del progreso empresarial.",
+    title: "DRJ Design & Code",
+    company_name: "DRJ Design & Code",
+    hero_title: "Impulsamos la Innovación Digital",
+    hero_description: "Transformamos tus ideas en soluciones digitales sólidas, creativas y escalables con el respaldo de tecnología de vanguardia.",
+    about_description: "Somos una empresa emergente dedicada a desarrollar soluciones digitales innovadoras que generan valor, potencian el crecimiento y fortalecen la presencia de tu negocio en el mundo digital.",
+    about_mission: "Nuestra misión es acercar la tecnología de última generación a empresas de todos los tamaños, garantizando accesibilidad, calidad e innovación como motores de transformación empresarial.",
     about_image: "/images/team.jpg", // Agrega tu imagen
     footer_description: "Liderando la revolución digital con soluciones innovadoras y tecnología de vanguardia.",
     form_action: "/contact",
     current_year: new Date().getFullYear(),
-    
+
     services: [
         {
             icon: "🚀",
             title: "Desarrollo Web",
-            description: "Aplicaciones web escalables, robustas y seguras diseñadas para crecer con tu negocio. Utilizamos las últimas tecnologías para garantizar rendimiento óptimo."
+            description: "Aplicaciones web escalables, seguras y de alto rendimiento, diseñadas para crecer junto a tu negocio con las últimas tecnologías."
         },
         {
             icon: "💳",
             title: "Sistemas POS",
-            description: "Soluciones de punto de venta inteligentes que optimizan tus operaciones comerciales con análisis en tiempo real y gestión de inventarios."
+            description: "Soluciones de punto de venta inteligentes que optimizan tus operaciones con gestión de inventarios y análisis en tiempo real."
         },
         {
             icon: "📱",
+            title: "Desarrollo Móvil",
+            description: "Creamos e implementamos soluciones móviles innovadoras que llevan tu empresa al siguiente nivel."
+        },
+        {
+            icon: "🤳",
             title: "Publicidad Digital",
-            description: "Campañas publicitarias estratégicas en redes sociales y Google Ads que maximizan tu ROI y aumentan tu presencia online."
+            description: "Campañas estratégicas en redes sociales y Google Ads que maximizan tu inversión y aumentan tu presencia online."
+        },
+        {
+            icon: "📄",
+            title: "Facturación Electrónica",
+            description: "Integramos facturación electrónica en tu sistema actual o desarrollamos soluciones a la medida para tu negocio."
         },
         {
             icon: "🎨",
             title: "Diseño Gráfico",
-            description: "Diseños creativos y profesionales que comunican la esencia de tu marca: logos, branding, material publicitario y más."
+            description: "Diseños creativos y profesionales que transmiten la esencia de tu marca: logotipos, branding, material publicitario y más."
         },
         {
             icon: "📸",
             title: "Fotografía Profesional",
-            description: "Fotografía comercial y de producto que captura la calidad y esencia de tu negocio con un enfoque profesional y creativo."
+            description: "Fotografía comercial y de producto que refleja la calidad y esencia de tu negocio con un estilo creativo y moderno."
         },
         {
             icon: "📊",
             title: "Marketing Digital",
-            description: "Estrategias integrales de marketing digital: SEO, content marketing, email marketing y análisis de métricas para impulsar tu crecimiento."
+            description: "Estrategias integrales de marketing digital: SEO, marketing de contenidos, email marketing y análisis de métricas para impulsar tu crecimiento."
         }
     ],
-    
+
     stats: [
-        {
-            number: "150+",
-            label: "Proyectos Completados"
-        },
-        {
-            number: "50+",
-            label: "Clientes Satisfechos"
-        },
-        {
-            number: "5+",
-            label: "Años de Experiencia"
-        },
-        {
-            number: "24/7",
-            label: "Soporte Técnico"
-        }
+        { number: "3", label: "Miembros fundadores" },
+        { number: "4+", label: "Años de experiencia combinada" },
+        { number: "10+", label: "Proyectos en desarrollo" },
+        { number: "24/7", label: "Soporte personalizado" }
     ],
-    
+
+
     contact: {
-        email: "info@techsolutions.com",
-        phone: "+57 300 123 4567",
+        email: "drj.desing.code@gmail.com",
+        phone: "+57 3145636042 - 3205767316 - 3177422633",
         address: "Popayán, Cauca, Colombia"
     },
-    
+
     social: {
-        facebook: "https://facebook.com/tu-empresa",
-        instagram: "https://instagram.com/tu-empresa",
-        linkedin: "https://linkedin.com/company/tu-empresa",
-        twitter: "https://twitter.com/tu-empresa"
+        facebook: "https://facebook.com/",
+        instagram: "https://instagram.com/",
+        linkedin: "https://linkedin.com/",
+        twitter: "https://twitter.com/"
     }
 };
 
@@ -139,7 +138,7 @@ app.get('/', (req, res) => {
 app.post('/contact', async (req, res) => {
     try {
         const { name, email, phone, service, message } = req.body;
-        
+
         // Validar datos
         if (!name || !email || !message || !service) {
             return res.status(400).json({
@@ -174,13 +173,13 @@ app.post('/contact', async (req, res) => {
                         <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
                             <p style="color: #666; font-size: 14px;">
                                 📅 Recibido el ${new Date().toLocaleDateString('es-CO', {
-                                    weekday: 'long',
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric',
-                                    hour: '2-digit',
-                                    minute: '2-digit'
-                                })}
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            })}
                             </p>
                         </div>
                     </div>
@@ -236,7 +235,7 @@ app.post('/contact', async (req, res) => {
                         
                         <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
                             <p style="color: #999; font-size: 12px;">
-                                © ${new Date().getFullYear()} Pixel&Co. Transformando ideas en realidad digital.
+                                © ${new Date().getFullYear()} DRJ Desing & Code. Transformando ideas en realidad digital.
                             </p>
                         </div>
                     </div>
@@ -268,8 +267,8 @@ app.post('/contact', async (req, res) => {
 
 // Ruta para verificar estado del servidor
 app.get('/health', (req, res) => {
-    res.json({ 
-        status: 'OK', 
+    res.json({
+        status: 'OK',
         timestamp: new Date().toISOString(),
         uptime: process.uptime()
     });
@@ -277,7 +276,7 @@ app.get('/health', (req, res) => {
 
 // Middleware para manejar errores 404
 app.use((req, res) => {
-    res.status(404).render('404', { 
+    res.status(404).render('404', {
         title: 'Página no encontrada',
         company_name: templateData.company_name
     });
